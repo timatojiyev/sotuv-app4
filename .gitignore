@@ -1,0 +1,35 @@
+# Python vaqtinchalik fayllari
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual muhit (Virtual Environment)
+venv/
+env/
+ENV/
+.env/
+bin/
+include/
+lib/
+share/
+
+# Django maxfiy fayllari va ma'lumotlar bazasi
+.env
+db.sqlite3
+db.sqlite3-journal
+
+# Media va Static fayllar (Serverda to'planadigan fayllar)
+media/
+staticfiles/
+
+# IDE sozlamalari (PyCharm, VS Code)
+.idea/
+.vscode/
+*.swp
+
+# OS darajasidagi fayllar
+.DS_Store
+Thumbs.db
+
+# Log fayllar
+*.log
