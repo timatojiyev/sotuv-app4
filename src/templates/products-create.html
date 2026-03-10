@@ -69,16 +69,20 @@
         </div>
     </header>
     <main class="flex-1 px-4 pb-32">
-        <div class="mt-4 mb-8">
-            <div
-                class="w-full aspect-video rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 flex flex-col items-center justify-center gap-2 active:bg-slate-100 dark:active:bg-slate-800 transition-colors cursor-pointer">
-                <div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                    <span class="material-symbols-outlined text-3xl">add_a_photo</span>
-                </div>
-                <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Rasm yuklash</span>
-            </div>
-        </div>
         <form class="space-y-6">
+            <div class="mt-4 mb-8">
+                <input type="file" class="hidden" id="import-image" name="image">
+                <label for="import-image">
+                    <div
+                        class="w-full aspect-video rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 flex flex-col items-center justify-center gap-2 active:bg-slate-100 dark:active:bg-slate-800 transition-colors cursor-pointer">
+                        <div class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-3xl">add_a_photo</span>
+                        </div>
+                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Rasm yuklash</span>
+                    </div>
+                </label>
+            </div>
+
             <div class="space-y-4">
                 <div>
                     <label
