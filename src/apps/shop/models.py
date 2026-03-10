@@ -5,7 +5,7 @@ from apps.users.models import User
 
 class Shop(models.Model):
     admin = models.ForeignKey(User, on_delete=models.RESTRICT)
-    branch = models.ForeignKey("self", on_delete=models.CASCADE)
+    branch = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=255)
     logo = models.ImageField(upload_to="shop-logo/", blank=True, null=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)

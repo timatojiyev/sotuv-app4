@@ -2,7 +2,7 @@ from django.db import models
 from apps.shop.models import Shop
 
 class Category(models.Model):
-    shop=models.ForeignKey(Shop, on_delete=models.CASCADE)
+    shop=models.ForeignKey(Shop, on_delete=models.CASCADE,  blank=True, null=True)
     name=models.CharField(max_length=255)
     product_coun=models.IntegerField(default=0)
     created_at=models.DateTimeField(auto_now_add=True)
