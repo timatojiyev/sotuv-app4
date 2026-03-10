@@ -8,7 +8,11 @@ def monitoring_page(request):
 
 
 def products_page(request):
-    return render(request, "products.html")
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, "products.html", context=context)
 
 
 def products_create_page(request):
