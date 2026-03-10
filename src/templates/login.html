@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block style %}
     <script id="tailwind-config">
         tailwind.config = {
@@ -43,7 +44,6 @@
 {% endblock %}
 
 {% block content %}
-
 <body class="bg-background-dark text-slate-100 min-h-screen flex flex-col justify-between overflow-hidden">
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-24 -right-24 size-64 bg-primary/10 rounded-full blur-3xl"></div>
@@ -106,7 +106,7 @@
                 </button>
             </div>
         </div>
-    </form>
+        </form>
     </main>
     <footer class="relative z-10 px-8 pb-12 flex flex-col items-center gap-6">
         <div class="flex items-center gap-4 w-full">
@@ -133,6 +133,6 @@
     </div>
 
 </body>
-{% endblock %}
 
-</html>
+
+{% endblock %}
