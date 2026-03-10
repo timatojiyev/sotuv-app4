@@ -113,7 +113,7 @@
                     <label
                         class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5 ml-1">Kategoriya</label>
                     <div class="relative">
-                        <select name="product_category" required
+                        <select title="Category" name="product_category" required
                             class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl py-4 px-4 text-base focus:ring-2 focus:ring-primary shadow-sm appearance-none">
                             <option value="">Kategoriyani tanlang</option>
                             {% for category in categories %}
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input checked="" class="sr-only peer" type="checkbox" name="status" />
+                    <input checked="" placeholder="salom" class="sr-only peer" type="checkbox" name="status" />
                     <div
                         class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-custom">
                     </div>
