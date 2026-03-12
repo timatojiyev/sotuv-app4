@@ -7,7 +7,15 @@ class Customer(models.Model):
     user = models.ForeignKey(
         "users.User", on_delete=models.SET_NULL, null=True, blank=True
     )
+    shop = models.ForeignKey(
+        "shop.Shop", on_delete=models.SET_NULL, null=True, blank=True
+    )
     comment = models.TextField(null=True, blank=True)
     wallet = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=20)
+    order_number = models.IntegerField(default=1)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.order_number}"
