@@ -19,3 +19,9 @@ class Customer(models.Model):
 
     def __str__(self):
         return f"{self.order_number}"
+    
+
+    def get_cart_total_price(self):
+        total_price = [crt.product.current_price * crt.quantity for crt in self.carts.all()]
+        return sum(total_price)
+        

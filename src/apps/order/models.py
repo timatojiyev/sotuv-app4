@@ -29,8 +29,11 @@ class OrderItem(models.Model):
 
 class Cart(models.Model):
     product = models.ForeignKey("product.Product", on_delete=models.CASCADE)
-    customer = models.ForeignKey("customer.Customer", on_delete=models.CASCADE)
+    customer = models.ForeignKey("customer.Customer", on_delete=models.CASCADE, related_name="carts")
     staff = models.ForeignKey("users.Staff", on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+    
