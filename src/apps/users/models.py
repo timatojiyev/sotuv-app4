@@ -11,21 +11,18 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.phone_number}, {self.get_full_name()}"
 
-
-class StaffRole(models.TextChoices):
-    SELLER = ("SELLER", "seller")
-    ADMIN = ("ADMIN", "admin")
-    MANAGER = ("MANAGER", "manager")
-
-
-class Staff(models.Model):
-    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="stuff")
-    shop = models.ForeignKey(
-        "shop.Shop", on_delete=models.SET_NULL, null=True, blank=True
-    )
-    role = models.CharField(max_length=50, choices=StaffRole.choices)
-    avatar = models.ImageField(null=True, blank=True, upload_to="staff_avatar/")
-    todays_income = models.DecimalField(default=0, max_digits=10, decimal_places=2)
+class Stuff(models.Model):
+    shop=models.ForeignKey("shop.Shop", on_delete=models.SET_NULL, null=True)
+    user=models.ForeignKey(User, on_delete=models.RESTRICT)
+    ROLE_CHOICES=[
+        ("seller","Seller"),
+        ("admin","Admin"),
+        ("manager","Manager"),
+    ]
+    role=models.CharField(max_length=20, choices=ROLE_CHOICES)
+    avatar=models.ImageField(blank=True, null=True)
+    todays_income=models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.user.get_full_name()} | {self.role}"
+        return f"{self.user}, {self.role}"
+    

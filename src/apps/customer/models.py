@@ -1,27 +1,13 @@
 from django.db import models
-
+from apps.users.models import User
 # Create your models here.
 
-
 class Customer(models.Model):
-    user = models.ForeignKey(
-        "users.User", on_delete=models.SET_NULL, null=True, blank=True
-    )
-    shop = models.ForeignKey(
-        "shop.Shop", on_delete=models.SET_NULL, null=True, blank=True
-    )
-    comment = models.TextField(null=True, blank=True)
-    wallet = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=20)
-    order_number = models.IntegerField(default=1)
-    is_active = models.BooleanField(default=True)
+    user=models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
+    comment=models.TextField(blank=True, null=True)
+    wallet=models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.order_number}"
-    
-
-    def get_cart_total_price(self):
-        total_price = [crt.product.current_price * crt.quantity for crt in self.carts.all()]
-        return sum(total_price)
-        
+        return f"{self.user}"
