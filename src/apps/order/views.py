@@ -78,6 +78,29 @@ def cart_add_customer_page(request, customer_id, product_id):
     return redirect("sotuv_products_list_page", customer_id=customer_id)
 
 
+def cart_add_customer_by_barcode_page(request, customer_id, barcode):
+    try:
+        product = Product.objects.get(barcode=barcode)
+        customer = get_object_or_404(Customer, pk=customer_id)
+        if customer:
+            user = request.user
+            cart = Cart.objects.filter(product=product, customer=customer)
+            if not cart.exists():
+                Cart.objects.create(
+                    product=product,
+                    customer=customer,
+                    quantity=1,
+                    staff=user.stuff.first()
+                )
+            else:
+                cart = cart.first()
+                cart.quantity += 1
+                cart.save()
+    except:
+        print("topolmadi")
+    return redirect(f"/sotuv/sotuv-page?customer={customer_id}")
+
+
 def cart_increase_page(request, pk):
     cart = get_object_or_404(Cart, pk=pk)
     customer_id = 0
