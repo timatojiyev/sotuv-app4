@@ -50,7 +50,6 @@ def products_create_page(request):
                 min_qoldiq = min_qoldiq,
                 is_active = True if status == "on" else False
             )
-            print(product)
         except Category.DoesNotExist:
             msg = "Category yoq yoki tanlanmadi!"
         return redirect("products_page")
